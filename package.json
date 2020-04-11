@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/guohaoyu110/COVID-19_tracker_analysis#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
     "js-crawler": "^0.3.21",
