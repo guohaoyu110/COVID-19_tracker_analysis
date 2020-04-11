@@ -72,14 +72,14 @@ export class HomeComponent implements OnInit {
           value = cs.confirmed
           
       if (caseType == 'a')
-        if (cs.active > 2000)
+        if (cs.active > 200)
           value = cs.active
       if (caseType == 'd')
-        if (cs.deaths > 1000)
+        if (cs.deaths > 10)
           value = cs.deaths
           
       if (caseType == 'r')
-        if (cs.recovered > 2000)
+        if (cs.recovered > 100)
             value = cs.recovered
         
 
@@ -106,11 +106,11 @@ export class HomeComponent implements OnInit {
     this.Table = {
       chartType: 'GeoChart',
       dataTable: datatable,
-      // options:{
-      //   alternatingRowStyle : true,
-      //   showRowNumber : true,
-      //   allowHtml: true,
-      // },
+      options:{
+        //displayMode : 'markers',
+        colorAxis: {colors: ['#4374e0','#e7711c', 'red']} ,
+        allowHtml: true,
+      },
     };
   }
 
