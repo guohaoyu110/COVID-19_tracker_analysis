@@ -10,10 +10,10 @@
 * Host this project on AWS or Google Cloud
 
 ### Frameworks considered to use: 
-* Frontend framework: Bootstrap4
-* Backend framework: Python flask or Node.js
-* Frontend icon: ECHARTS
-* Database: MySQL
+* Frontend framework: Angular
+* Backend framework: Node.js
+* Frontend icon: Google Map API
+* Database: Firebase
 
 ## Group members:
 Haoyu Guo   haoyuguo@usc.edu
