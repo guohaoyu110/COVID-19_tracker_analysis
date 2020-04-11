@@ -1,0 +1,108 @@
+<div class="ui inverted dimmer" [class.active]='loading'>
+    <div class="ui text loader">Loading</div>
+</div>
+
+<div class="jumbotron bg-white text-center p-0 m-0">
+    <h1 class="display-4">Covid-19 Global Tracker</h1>
+    <hr>
+
+    <app-dashboard-card [totalConfirmed]='totalConfirmed' [totalActive]='totalActive' [totalRecovered]='totalRecovered' [totalDeaths]='totalDeaths'></app-dashboard-card>
+
+</div>
+
+<hr>
+ <!-- the code before is now in the app-dashboard-card part -->
+ <div class="ui form">
+    <div class="inline fields">
+        <label for="fruit">Select Case Type : </label>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input type="radio" id='c' #c (click)='updateChart(c)' value="c" name="casetype" checked="" tabindex="0" class="hidden">
+                <label for='c'>Confirmed</label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input type="radio" value='d' #d (click)='updateChart(d)' id='d' name="casetype" tabindex="0" class="hidden">
+                <label for='d'>Deaths</label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input type="radio" value='r' #r (click)='updateChart(r)' id='r' name="casetype" tabindex="0" class="hidden">
+                <label for='r'>Recovered</label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input id='a' #a type="radio" (click)='updateChart(a)' value='a' name="casetype" tabindex="0" class="hidden">
+                <label for='a'>Active</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <google-chart [data]="Table" ></google-chart>
+        </div>
+        <div class="col">
+            <google-chart [data]="pieChart"></google-chart>
+        </div>
+    </div>
+
+    <!-- <div class="ui form">
+        <div class="inline fields">
+          <label for="fruit">Select your favorite fruit:</label>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="fruit" checked="" tabindex="0" class="hidden">
+              <label>Apples</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="fruit" tabindex="0" class="hidden">
+              <label>Oranges</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="fruit" tabindex="0" class="hidden">
+              <label>Pears</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="fruit" tabindex="0" class="hidden">
+              <label>Grapefruit</label>
+            </div>
+          </div>
+        </div>
+        <div class="grouped fields">
+          <label for="fruit">Select your second favorite fruit:</label>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="fruit" checked="" tabindex="0" class="hidden">
+              <label>Apples</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="fruit" tabindex="0" class="hidden">
+              <label>Oranges</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="fruit" tabindex="0" class="hidden">
+              <label>Pears</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="fruit" tabindex="0" class="hidden">
+              <label>Grapefruit</label>
+            </div>
+          </div>
+        </div>
+      </div> -->
