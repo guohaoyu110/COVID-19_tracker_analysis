@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { CountriesComponent } from './components/countries/countries.component';
+import { AboutmeComponent } from './components/aboutme/aboutme.component';
+import { FooterComponent } from './components/footer/footer.component';
 import {HttpClientModule}  from '@angular/common/http';
 import { DashboardCardComponent } from './components/dashboard-card/dashboard-card.component'
 import { Ng2GoogleChartsModule } from 'ng2-google-charts'; // add google charts
 import { StatesComponent } from './components/states/states.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { StatesComponent } from './components/states/states.component';
     HomeComponent,
     CountriesComponent,
     DashboardCardComponent,
-    StatesComponent
+    StatesComponent,
+    AboutmeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
