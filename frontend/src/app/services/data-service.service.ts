@@ -17,7 +17,7 @@ export class DataServiceService {
   private globalDataUrl1 = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/`
   +`0${new Date().getMonth()+1}-${new Date().getDate()-1}-2020.csv`;
   
-  
+  // 通过前后端的交互来判断这个文件到底是用哪一个
 
   // the datawise part   
   private dateWiseDataUrl = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv`
