@@ -44,7 +44,6 @@ export class DataServiceService {
           
         })
 
-
         // console.log(mainData);
         return mainData;
       }))
