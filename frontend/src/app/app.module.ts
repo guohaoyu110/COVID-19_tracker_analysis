@@ -13,7 +13,6 @@ import { DashboardCardComponent } from './components/dashboard-card/dashboard-ca
 import { Ng2GoogleChartsModule } from 'ng2-google-charts'; // add google charts
 import { StatesComponent } from './components/states/states.component';
 import { HowtostaysafeComponent } from './components/howtostaysafe/howtostaysafe.component';
-import { NewsupdateComponent } from './components/newsupdate/newsupdate.component';
 
 
 @NgModule({
@@ -26,8 +25,7 @@ import { NewsupdateComponent } from './components/newsupdate/newsupdate.componen
     StatesComponent,
     AboutmeComponent,
     FooterComponent,
-    HowtostaysafeComponent,
-    NewsupdateComponent
+    HowtostaysafeComponent
   ],
   imports: [
     BrowserModule,

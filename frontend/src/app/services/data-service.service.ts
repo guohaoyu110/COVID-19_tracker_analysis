@@ -12,9 +12,9 @@ import { DateWiseData } from '../models/date-wise-data';
 
 export class DataServiceService {
   // let myDate = new Date();
-  private globalDataUrl = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/`
-  +`0${new Date().getMonth()+1}-${new Date().getDate()}-2020.csv`;
   private globalDataUrl1 = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/`
+  +`0${new Date().getMonth()+1}-${new Date().getDate()}-2020.csv`;
+  private globalDataUrl = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/`
   +`0${new Date().getMonth()+1}-${new Date().getDate()-1}-2020.csv`;
   
   // 通过前后端的交互来判断这个文件到底是用哪一个
