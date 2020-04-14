@@ -12,6 +12,7 @@ import {HttpClientModule}  from '@angular/common/http';
 import { DashboardCardComponent } from './components/dashboard-card/dashboard-card.component'
 import { Ng2GoogleChartsModule } from 'ng2-google-charts'; // add google charts
 import { StatesComponent } from './components/states/states.component';
+import { HowtostaysafeComponent } from './components/howtostaysafe/howtostaysafe.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { StatesComponent } from './components/states/states.component';
     DashboardCardComponent,
     StatesComponent,
     AboutmeComponent,
-    FooterComponent
+    FooterComponent,
+    HowtostaysafeComponent
   ],
   imports: [
     BrowserModule,

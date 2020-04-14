@@ -1,0 +1,25 @@
+h5,  li {
+    margin-bottom: 0.5em;
+    font-size: large;
+}
+
+.row {
+    color : black;
+}
+
+.card{
+    background-color: white !important; 
+}
+
+.d-md-block , .col-md-9{
+    border-radius: 10px;
+    background-color: white;
+}
+
+.col-md-9{
+    margin-bottom: 5px;
+}
+
+.card-body{
+    background-color: white !important; ;
+}
