@@ -1,4 +1,4 @@
-// "use strict";
+"use strict";
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -15,7 +15,7 @@ function getstates(){
     statedata.then(function(result) {
         //console.log(result); // "Some User token"
         let data = JSON.stringify(result);
-        console.log(data);
+        //console.log(data);
         let fs = require('fs');
         fs.writeFile('state.json', data, () => {});
     });
@@ -27,10 +27,10 @@ function getcountries(){
     let countrydata = track.countries();
 
     countrydata.then(function(result) {
-        console.log(result); // "Some User token"
+        //console.log(result); // "Some User token"
         result.forEach((obj) => { delete obj.countryInfo; });
         let data = JSON.stringify(result);
-        console.log(data);
+        //console.log(data);
         let fs = require('fs');
         fs.writeFile('country.json', data, () => {});
     });
