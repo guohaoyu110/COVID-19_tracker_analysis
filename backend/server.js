@@ -1,3 +1,11 @@
+// "use strict";
+const express = require("express");
+const app = express();
+const cors = require("cors");
+app.use(express.static("static"));
+app.use(cors());
+
+let port = 6000;
 
 function getstates(){
     const { NovelCovid } = require('novelcovid');
@@ -34,7 +42,12 @@ async function submit(){
     let update = setInterval(() => {
         getstates();
         getcountries();
-    }, 3600000);
+    }, 3600000); // update it every hour
 }
 
 submit();
+
+app.listen(port, err => {
+    console.log(`Listening on port: ${port}`);
+    
+})
