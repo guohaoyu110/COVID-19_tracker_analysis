@@ -3,3 +3,4 @@ export interface DateWiseData{
     cases ?: number , 
     date  ?: Date
 }
+

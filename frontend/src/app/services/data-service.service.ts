@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators'
 import { GlobalDataSummary } from '../models/gloabl-data';
 import { DateWiseData } from '../models/date-wise-data';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +17,7 @@ export class DataServiceService {
   +`0${new Date().getMonth()+1}-${new Date().getDate()}-2020.csv`;
   private globalDataUrl = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/`
   +`0${new Date().getMonth()+1}-${new Date().getDate()-1}-2020.csv`;
-  
+  // fs cannot be used in the frontend
   // 通过前后端的交互来判断这个文件到底是用哪一个
 
   // the datawise part   
@@ -32,7 +33,7 @@ export class DataServiceService {
         let mainData = {};
         let header = rows[0];
         let dates = header.split(/,(?=\S)/);
-        dates.splice(0 , 4); // only get the firest four elements
+        dates.splice(0 , 4); // only get the first four elements
         rows.splice(0 , 1);
         rows.forEach(row=>{
           let cols = row.split(/,(?=\S)/); 
