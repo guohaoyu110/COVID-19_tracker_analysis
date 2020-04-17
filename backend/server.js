@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 app.use(express.static("static"));
+app.use(express.static('public'));
+
 app.use(cors());
 
 let port = 6000;
@@ -17,7 +19,7 @@ function getstates(){
         let data = JSON.stringify(result);
         //console.log(data);
         let fs = require('fs');
-        fs.writeFile('state.json', data, () => {});
+        fs.writeFile('public/state.json', data, () => {});
     });
 }
 
@@ -32,7 +34,7 @@ function getcountries(){
         let data = JSON.stringify(result);
         //console.log(data);
         let fs = require('fs');
-        fs.writeFile('country.json', data, () => {});
+        fs.writeFile('public/country.json', data, () => {});
     });
 }
 
@@ -47,7 +49,8 @@ async function submit(){
 
 submit();
 
-app.listen(port, err => {
-    console.log(`Listening on port: ${port}`);
+// app.listen(port, err => {
+//     console.log(`Listening on port: ${port}`);
     
-})
+// })
+app.listen(port, () => console.log(`Listening on port: ${port}`);)
