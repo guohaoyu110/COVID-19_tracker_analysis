@@ -4,7 +4,6 @@ const app = express();
 var fetch = require("node-fetch");
 let fs = require('fs');
 
-
 let port = 6000;
 
 async function getstates(){
@@ -19,6 +18,7 @@ async function getstates(){
     //     let fs = require('fs');
     //     fs.writeFile('state.json', data, () => {});
     // });
+    
     const state_url = "https://corona.lmao.ninja/v2/states";
     // const response = await fetch(state_url);
     // const data = await response.json();
@@ -26,35 +26,49 @@ async function getstates(){
     fetch(state_url).then(function(response) {
         return response.json();
     }).then(function (data){
-        console.log(data);
-        fs.writeFile('state.json',response.json(),()=>{});
+        //console.log(data);
+        fs.writeFile('state.json',JSON.stringify(data),()=>{});
     }).catch(function(e){
         console.log("Oops, error");
     });
     
 }
 
-// async function getcountries(){
-//     const { NovelCovid } = require('novelcovid');
-//     const track = new NovelCovid();
-//     let countrydata = track.countries();
+async function getcountries(){
+    const { NovelCovid } = require('novelcovid');
+    const track = new NovelCovid();
+    let countrydata = track.countries();
+    const country_url = "https://corona.lmao.ninja/v2/countries";
+    
+    fetch(country_url).then(function(response) {
+        return response.json();
+    }).then(function(result) {
+        //console.log(result); // "Some User token"
+        result.forEach((obj) => { delete obj.countryInfo; });
+        let data = JSON.stringify(result);
+        //console.log(data);
+        let fs = require('fs');
+        fs.writeFile('country.json', data, () => {});
+    }).catch(function(e){
+        console.log("Oops, error");
+    });
 
-//     countrydata.then(function(result) {
-//         //console.log(result); // "Some User token"
-//         result.forEach((obj) => { delete obj.countryInfo; });
-//         let data = JSON.stringify(result);
-//         //console.log(data);
-//         let fs = require('fs');
-//         fs.writeFile('country.json', data, () => {});
-//     });
-// }
+    /*countrydata.then(function(result) {
+        //console.log(result); // "Some User token"
+        result.forEach((obj) => { delete obj.countryInfo; });
+        let data = JSON.stringify(result);
+        //console.log(data);
+        let fs = require('fs');
+        fs.writeFile('country.json', data, () => {});
+    });*/
+}
 
 async function submit(){
     getstates();
-    // getcountries();
+    getcountries();
     let update = setInterval(() => {
         getstates();
-        // getcountries();
+        getcountries();
     }, 3600000); // update it every hour
 }
 
