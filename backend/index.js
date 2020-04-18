@@ -5,7 +5,7 @@ const fetch = require("node-fetch");
 let fs = require('fs');
 
 
-const port = 3001; //cannot use ports over
+const port = 3001; //cannot use ports like 6000
 app.listen(port, err => {
     console.log(`Listening on port: ${port}`);
 })
