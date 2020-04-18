@@ -15,7 +15,7 @@ async function getstates(){
         return response.json();
     }).then(function (data){
         //console.log(data);
-        fs.writeFile('state.json',JSON.stringify(data),()=>{});
+        fs.writeFile('public/state.json',JSON.stringify(data),()=>{});
     }).catch(function(e){
         console.log("Oops, error");
     });
@@ -33,7 +33,7 @@ async function getcountries(){
         let data = JSON.stringify(result);
         //console.log(data);
         let fs = require('fs');
-        fs.writeFile('country.json', data, () => {});
+        fs.writeFile('public/country.json', data, () => {});
     }).catch(function(e){
         console.log("Oops, error");
     });
