@@ -7,18 +7,6 @@ let fs = require('fs');
 let port = 6000;
 
 async function getstates(){
-    // const { NovelCovid } = require('novelcovid');
-    // // const track = new NovelCovid();
-    // let statedata = track.states();
-
-    // statedata.then(function(result) {
-    //     //console.log(result); // "Some User token"
-    //     let data = JSON.stringify(result);
-    //     //console.log(data);
-    //     let fs = require('fs');
-    //     fs.writeFile('state.json', data, () => {});
-    // });
-    
     const state_url = "https://corona.lmao.ninja/v2/states";
     // const response = await fetch(state_url);
     // const data = await response.json();
@@ -35,9 +23,6 @@ async function getstates(){
 }
 
 async function getcountries(){
-    const { NovelCovid } = require('novelcovid');
-    const track = new NovelCovid();
-    let countrydata = track.countries();
     const country_url = "https://corona.lmao.ninja/v2/countries";
     
     fetch(country_url).then(function(response) {
@@ -52,15 +37,6 @@ async function getcountries(){
     }).catch(function(e){
         console.log("Oops, error");
     });
-
-    /*countrydata.then(function(result) {
-        //console.log(result); // "Some User token"
-        result.forEach((obj) => { delete obj.countryInfo; });
-        let data = JSON.stringify(result);
-        //console.log(data);
-        let fs = require('fs');
-        fs.writeFile('country.json', data, () => {});
-    });*/
 }
 
 async function submit(){

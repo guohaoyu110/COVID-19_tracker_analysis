@@ -12,7 +12,7 @@
     "cors": "^2.8.5",
     "cross-fetch": "^3.0.4",
     "express": "^4.17.1",
-    "node-fetch": "^3.0.0-beta.4",
+    "node-fetch": "^2.6.0",
     "novelcovid": "^1.1.4"
   }
 }
