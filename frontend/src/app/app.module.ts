@@ -14,6 +14,7 @@ import { Ng2GoogleChartsModule } from 'ng2-google-charts'; // add google charts
 import { HowtostaysafeComponent } from './components/howtostaysafe/howtostaysafe.component';
 // import { LAcountyComponent } from './components/lacounty/lacounty.component';
 import { StateDashboardComponent } from './components/state-dashboard/state-dashboard.component';
+import { NewsapiComponent } from './components/newsapi/newsapi.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { StateDashboardComponent } from './components/state-dashboard/state-dash
     FooterComponent,
     HowtostaysafeComponent,
     // LAcountyComponent,
-    StateDashboardComponent
+    StateDashboardComponent,
+    NewsapiComponent
   ],
   imports: [
     BrowserModule,

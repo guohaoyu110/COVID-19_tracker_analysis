@@ -5,6 +5,7 @@ import { CountriesComponent } from './components/countries/countries.component';
 import { AboutmeComponent } from './components/aboutme/aboutme.component';
 import { HowtostaysafeComponent } from './components/howtostaysafe/howtostaysafe.component';
 import { StateDashboardComponent } from './components/state-dashboard/state-dashboard.component';
+import { NewsapiComponent } from './components/newsapi/newsapi.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path : 'countries' , component :CountriesComponent}, 
   {path : 'aboutme' , component :AboutmeComponent},
   {path : 'safetytips', component: HowtostaysafeComponent},
-  {path : 'states' , component: StateDashboardComponent}
+  {path : 'states' , component: StateDashboardComponent},
+  {path : 'news', component: NewsapiComponent}
 ];
 
 @NgModule({
