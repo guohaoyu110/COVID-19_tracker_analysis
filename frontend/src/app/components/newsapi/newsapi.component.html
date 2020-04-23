@@ -1,0 +1,25 @@
+<!-- <p>newsapi works!</p> -->
+<div class="container"  *ngFor="let news of newsData" style="justify-content: center; align-content: flex-end;margin-bottom: 2px; margin-top: 2px; ">
+    <div class="col-sm-12 newsdiv"  >
+      
+     
+<div class="row" style="vertical-align: middle;">
+     <div class="col-sm-2" style="text-align: center; align-self: center;">
+      <img [src]="news.image.thumbnail.contentUrl" alt="" />
+     </div>
+     <div class="col-sm-10">
+       
+    
+        <h5 style="font-weight: bold; color : black; padding: 0.5rem; border-bottom: 1px solid white;" >
+        
+        <span  class="badge badge-danger cBadge" style="margin-right: 0.5rem;">{{news.provider[0].name}}</span>
+         <a [href]="news.url" target="_blank" style="color: unset !important;">{{news.name}}</a> 
+         <span  class="badge badge-primary cBadge"  style="margin-left: 0.5rem;">{{news.datePublished | date }}</span>
+        </h5>
+     
+     
+       <div>{{news.description}} <a [href]="news.url" target="_blank" >Read More</a></div>
+      </div>
+      </div>
+    </div>
+  </div>
