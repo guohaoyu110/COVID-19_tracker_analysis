@@ -57,12 +57,6 @@ export class DataServiceService {
   //       return mainData;
   //     }))
   // }
-  // getStateData() {
-  //   this.http.get('http://localhost:3001/state.json')
-  //   .subscribe((response) => {
-  //     this.state
-  //   })
-  // }
   
   getGlobalData() {
     return this.http.get(this.globalDataUrl, { responseType: 'text' }).pipe(
