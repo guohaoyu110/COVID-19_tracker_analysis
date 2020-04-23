@@ -1,0 +1,38 @@
+<!-- <p>state-dashboard works!</p> -->
+<div class="jumbotron bg-white text-center p-0 m-0 ">
+<h1 class="display-4">US State Wise Tracker</h1>
+<hr>
+ 
+
+<button type="button" class="btn btn-primary btn-lg btn-block" (click)="getStateData()">Show State Data</button>
+<hr>
+<div style="text-align:center">
+    <canvas style ="display: block;margin: 0 auto;" id="myChart" width="420" height="200"></canvas>
+</div>
+<hr>
+
+<table *ngIf = "stateData" class="table table-striped">
+    
+    <thead class="sticky"> 
+      <tr>
+        <th>Region</th>
+        <th>Confirmed Cases total</th>
+        <th>Confirmed Cases today</th>
+        <th>Active</th>
+        <th>Deaths</th>
+        <th>Tests per million</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let state of stateData">
+        <td>{{state.state}}</td>
+        <td>{{state.cases | number}}</td>
+        <td>{{state.todayCases | number}}</td>
+        <td>{{state.active | number}}</td>
+        <td>{{state.deaths | number}}</td>
+        <td>{{state.testsPerOneMillion | number}}</td>
+      </tr>
+     
+    </tbody>
+    
+  </table>
