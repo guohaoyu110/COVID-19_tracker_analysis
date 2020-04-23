@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data-service.service';
 import { GlobalDataSummary } from 'src/app/models/gloabl-data';
-//import { DateWiseData } from 'src/app/models/date-wise-data';
 //import { GoogleChartInterface } from 'ng2-google-charts/google-charts-interfaces';
 import { merge } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -39,6 +38,7 @@ export class CountriesComponent implements OnInit {
         this.data = result;
         this.data.forEach(cs=>{
           this.countries.push(cs.country)
+          //console.log('service.globaDataUrl: ', service.globaDataUrl);
         })
       }))
     ).subscribe(

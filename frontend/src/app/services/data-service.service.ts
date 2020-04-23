@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators'
 import { GlobalDataSummary } from '../models/gloabl-data';
-//import { DateWiseData } from '../models/date-wise-data';
 
 
 @Injectable({
@@ -10,58 +9,37 @@ import { GlobalDataSummary } from '../models/gloabl-data';
 })
 
 
-
 export class DataServiceService {
-  // let myDate = new Date();
-  private globalDataUrl1 = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/`
-  +`0${new Date().getMonth()+1}-${new Date().getDate()}-2020.csv`;
-  private globalDataUrl = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/`
-  +`0${new Date().getMonth()+1}-${new Date().getDate()-1}-2020.csv`;
-  // fs cannot be used in the frontend
-  // 通过前后端的交互来判断这个文件到底是用哪一个
-
-  // the datawise part   
-  //private dateWiseDataUrl = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv`
-  constructor(private http: HttpClient) { }
-
-  // can altermatically update the data
-  // getDateWiseData() {
-  //   return this.http.get(this.dateWiseDataUrl, { responseType: 'text' })
-  //     .pipe(map(result => {
-  //       let rows = result.split('\n');
-  //       // console.log(rows);
-  //       let mainData = {};
-  //       let header = rows[0];
-  //       let dates = header.split(/,(?=\S)/);
-  //       dates.splice(0 , 4); // only get the first four elements
-  //       rows.splice(0 , 1);
-  //       rows.forEach(row=>{
-  //         let cols = row.split(/,(?=\S)/); 
-  //         let con = cols[1];
-  //         cols.splice(0 , 4);
-  //         // console.log(con , cols);
-  //         mainData[con] = [];
-  //         cols.forEach((value , index)=>{
-  //           let dw : DateWiseData = {
-  //             cases : +value ,
-  //             country : con , 
-  //             date : new Date(Date.parse(dates[index])) 
-
-  //           }
-  //           mainData[con].push(dw) // have the country as the key
-  //         })
-          
-  //       })
-
-  //       // console.log(mainData);
-  //       return mainData;
-  //     }))
-  // }
+  
+  private nowdate = this.getdate();
+  // nowdate : any;
+  constructor(private http: HttpClient ) {
+ }
+ getdate(){
+  let today = new Date();
+  let nowTime = today.getTime();
+  let ms = 24*3600*1000*(-1);
+  today.setTime(nowTime + ms);
+  let oYear = today.getFullYear();
+  let oMoth = (today.getMonth() + 1).toString();
+  if (oMoth.length <= 1) oMoth = '0' + oMoth;
+  let oDay = today.getDate().toString();
+  if (oDay.length <= 1) oDay = '0' + oDay;
+  return oMoth + '-' + oDay + '-' + oYear;
+ }
+  // private globalDataUrl1 = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/`
+  // +`0${new Date().getMonth()+1}-${new Date().getDate()}-2020.csv`;
+  // private globalDataUrl2 = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/`
+  // +`0${new Date().getMonth()+1}-${new Date().getDate()-1}-2020.csv`;
+  public globalDataUrl = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/`
+  + this.nowdate + `.csv`;
+  
   
   getGlobalData() {
     return this.http.get(this.globalDataUrl, { responseType: 'text' }).pipe(
       map(result => {
         //let data: GlobalDataSummary[] = [];
+        //console.log('globalDataUrl: ', this.globalDataUrl);
         let raw = {}
         let rows = result.split('\n');
         rows.splice(0, 1);
