@@ -4,7 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CountriesComponent } from './components/countries/countries.component';
 import { AboutmeComponent } from './components/aboutme/aboutme.component';
 import { HowtostaysafeComponent } from './components/howtostaysafe/howtostaysafe.component';
-import { CovidDashboardComponent } from './components/covid-dashboard/covid-dashboard.component';
+import { StateDashboardComponent } from './components/state-dashboard/state-dashboard.component';
 
 
 const routes: Routes = [
@@ -12,7 +12,7 @@ const routes: Routes = [
   {path : 'countries' , component :CountriesComponent}, 
   {path : 'aboutme' , component :AboutmeComponent},
   {path : 'safetytips', component: HowtostaysafeComponent},
-  {path : 'states' , component: CovidDashboardComponent}
+  {path : 'states' , component: StateDashboardComponent}
 ];
 
 @NgModule({

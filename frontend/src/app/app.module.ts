@@ -12,8 +12,8 @@ import {HttpClientModule}  from '@angular/common/http';
 import { DashboardCardComponent } from './components/dashboard-card/dashboard-card.component'
 import { Ng2GoogleChartsModule } from 'ng2-google-charts'; // add google charts
 import { HowtostaysafeComponent } from './components/howtostaysafe/howtostaysafe.component';
-import { LAcountyComponent } from './components/lacounty/lacounty.component';
-import { CovidDashboardComponent } from './components/covid-dashboard/covid-dashboard.component';
+// import { LAcountyComponent } from './components/lacounty/lacounty.component';
+import { StateDashboardComponent } from './components/state-dashboard/state-dashboard.component';
 
 
 @NgModule({
@@ -26,8 +26,8 @@ import { CovidDashboardComponent } from './components/covid-dashboard/covid-dash
     AboutmeComponent,
     FooterComponent,
     HowtostaysafeComponent,
-    LAcountyComponent,
-    CovidDashboardComponent
+    // LAcountyComponent,
+    StateDashboardComponent
   ],
   imports: [
     BrowserModule,
