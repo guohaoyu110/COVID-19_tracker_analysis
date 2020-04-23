@@ -13,12 +13,12 @@
         <h5 style="font-weight: bold; color : black; padding: 0.5rem; border-bottom: 1px solid white;" >
         
         <span  class="badge badge-danger cBadge" style="margin-right: 0.5rem;">{{news.provider[0].name}}</span>
-         <a [href]="news.url" target="_blank" style="color: unset !important;">{{news.name}}</a> 
+         <a [href]="news.url" target="_blank" style="color: unset;">{{news.name}}</a> 
          <span  class="badge badge-primary cBadge"  style="margin-left: 0.5rem;">{{news.datePublished | date }}</span>
         </h5>
      
      
-       <div>{{news.description}} <a [href]="news.url" target="_blank" >Read More</a></div>
+       <div>{{news.description}} <a [href]="news.url" target="_blank" ></a></div>
       </div>
       </div>
     </div>
