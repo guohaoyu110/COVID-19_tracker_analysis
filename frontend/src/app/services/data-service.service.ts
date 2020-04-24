@@ -11,11 +11,11 @@ import { GlobalDataSummary } from '../models/gloabl-data';
 
 export class DataServiceService {
   
-  private nowdate = this.getdate();
+  private yesterday = this.getyesterday();
   // nowdate : any;
   constructor(private http: HttpClient ) {
  }
- getdate(){
+ getyesterday(){
   let today = new Date();
   let nowTime = today.getTime();
   let ms = 24*3600*1000*(-1);
@@ -32,7 +32,7 @@ export class DataServiceService {
   // private globalDataUrl2 = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/`
   // +`0${new Date().getMonth()+1}-${new Date().getDate()-1}-2020.csv`;
   public globalDataUrl = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/`
-  + this.nowdate + `.csv`;
+  + this.yesterday + `.csv`;
   
   
   getGlobalData() {
