@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CovidService } from '../../services/covid.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import * as Chart from 'chart.js'
@@ -23,7 +22,7 @@ export class StateDashboardComponent implements OnInit {
   deaths =[];
   testsPerOneMillion = [];
   
-  constructor(svc: CovidService, private http:HttpClient) {
+  constructor(private http:HttpClient) {
     
    }
 
