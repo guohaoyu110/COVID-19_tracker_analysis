@@ -26,6 +26,7 @@ async function getstates(){
     });
     
 }
+
 /*
 async function getcountries(){
     const country_url = "https://corona.lmao.ninja/v2/countries";
@@ -65,6 +66,7 @@ app.route('/email/:address').get(function(req,res)
 app.get('/',function(req,res){
     res.send('Welcome to COVID19');
 });
+
 app.listen(port, err => {
     console.log(`Listening on port: ${port}`);
 })

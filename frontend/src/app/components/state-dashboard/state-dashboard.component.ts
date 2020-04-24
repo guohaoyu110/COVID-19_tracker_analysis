@@ -38,7 +38,7 @@ export class StateDashboardComponent implements OnInit {
 
   getStateData(){
  
-    this.http.get('http://127.0.0.1:7777/state')
+    this.http.get('http://127.0.0.1:7777/state.json')
     .subscribe((response) => 
       {this.stateData = response;
       this.stateData = JSON.stringify(this.stateData);
