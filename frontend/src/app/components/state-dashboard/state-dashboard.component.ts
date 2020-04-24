@@ -38,7 +38,7 @@ export class StateDashboardComponent implements OnInit {
 
   getStateData(){
  
-    this.http.get('https://corona.lmao.ninja/v2/states')
+    this.http.get('http://127.0.0.1:7777/state')
     .subscribe((response) => 
       {this.stateData = response;
       this.stateData = JSON.stringify(this.stateData);
