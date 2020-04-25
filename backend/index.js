@@ -45,6 +45,11 @@ async function getstates(){
     
 }
 
+function isEmail(str) {
+    var reg=/^\w+@[a-zA-Z0-9]{2,10}(?:\.[a-z]{2,4}){1,3}$/;
+    return reg.test(str);
+}
+
 function sendemails(){
     mailOptions.to = emailaddresslist;
     mailOptions.text = 'In USA:'+'todayCases: '+todaycases.toString()+" "+'totalCases: ' + totalcases.toString();
@@ -93,12 +98,17 @@ app.route('/state').get(function(req,res)
 app.route('/email/:address').get(function(req,res)
 {
     let address = req.params.address;
-    if (!emailaddress.has(address))
+    if (!isEmail(address)) {
+        console.log('invalid address');
+        res.status(200).send('invalid');
+    }
+    if (isEmail(address) && !emailaddress.has(address))
     {
         emailaddress.add(address);
         emailaddresslist.push(address);
+        console.log(address);
+        //res.send('valid');
     }
-    console.log(address);
     res.end();
 });
 
