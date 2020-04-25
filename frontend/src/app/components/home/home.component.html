@@ -6,8 +6,50 @@
     <h1 class="display-4">Covid-19 Global Tracker</h1>
     <hr>
 
-    <app-dashboard-card [totalConfirmed]='totalConfirmed' [totalActive]='totalActive' [totalRecovered]='totalRecovered' [totalDeaths]='totalDeaths'></app-dashboard-card>
-
+    <!-- <app-dashboard-card [totalConfirmed]='totalConfirmed' [totalActive]='totalActive' [totalRecovered]='totalRecovered' [totalDeaths]='totalDeaths'></app-dashboard-card> -->
+    <div class="row">
+        <div class="card col p-3 m-3">
+            <div class="ui statistic">
+                <div class="label">
+                    <h3>Confirmed</h3>
+                </div>
+                <div class="value">
+                    {{totalConfirmed|number}}
+                </div>
+            </div>
+        </div>
+        <div class="card col p-3 m-3">
+            <div class="ui statistic">
+                <div class="label">
+                    <h3>Recovered</h3>
+                </div>
+                <div class="value">
+                    {{totalRecovered|number}}
+                </div>
+            </div>
+        </div>
+        <div class="card col p-3 m-3">
+            <div class="ui statistic">
+                <div class="label">
+                    <h3>Deaths</h3>
+                </div>
+                <div class="value">
+                    {{totalDeaths|number}}
+                </div>
+            </div>
+        </div>
+        <div class="card col p-3 m-3">
+            <div class="ui statistic">
+                <div class="label">
+                    <h3>Active</h3>
+                </div>
+                <div class="value">
+                    {{totalActive|number}}
+                </div>
+            </div>
+        </div>
+    
+    </div>
 </div>
 
 <hr>

@@ -9,7 +9,6 @@ import { CountriesComponent } from './components/countries/countries.component';
 import { AboutmeComponent } from './components/aboutme/aboutme.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {HttpClientModule}  from '@angular/common/http';
-import { DashboardCardComponent } from './components/dashboard-card/dashboard-card.component'
 import { Ng2GoogleChartsModule } from 'ng2-google-charts'; // add google charts
 import { HowtostaysafeComponent } from './components/howtostaysafe/howtostaysafe.component';
 // import { LAcountyComponent } from './components/lacounty/lacounty.component';
@@ -24,11 +23,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     HomeComponent,
     CountriesComponent,
-    DashboardCardComponent,
     AboutmeComponent,
     FooterComponent,
     HowtostaysafeComponent,
-    // LAcountyComponent,
     StateDashboardComponent,
     NewsapiComponent
   ],
