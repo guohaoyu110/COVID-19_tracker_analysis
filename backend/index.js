@@ -1,14 +1,31 @@
-"use strict";
+// "use strict";
 const express = require("express");
 const app = express();
 const fetch = require("node-fetch");
-let fs = require('fs');
-var cors = require('cors')
+const nodemailer = require('nodemailer');
+const fs = require('fs');
+const cors = require('cors')
 var stateinfo = [];
-var emailaddress = [];
+var todaycases = 0;
+var emailaddress = new Set();
+var emailaddresslist = [];
 
 const port = 7777; //cannot use ports like 6000
 
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'tianyi.usc@gmail.com',
+    pass: '20120823zhima',
+  }
+});
+
+var mailOptions = {
+  from: 'tianyi.usc@gmail.com',
+  to: '',
+  subject: 'COVID19 information update',
+  text: 'test.'
+};
 
 async function getstates(){
     const state_url = "https://corona.lmao.ninja/v2/states";
@@ -27,29 +44,42 @@ async function getstates(){
     
 }
 
-/*
+function sendemails(){
+    mailOptions.to = emailaddresslist;
+    mailOptions.text = 'todayCases: '+todaycases.toString();
+    transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    console.log('Message sent: %s', info.messageId);
+    });
+}
+
 async function getcountries(){
-    const country_url = "https://corona.lmao.ninja/v2/countries";
+    const country_url = "https://corona.lmao.ninja/v2/countries/usa?yesterday=true&strict=true";
     
     fetch(country_url).then(function(response) {
         return response.json();
     }).then(function(result) {
-        //console.log(result); // "Some User token"
-        result.forEach((obj) => { delete obj.countryInfo; });
-        let data = JSON.stringify(result);
-        //console.log(data);
-        let fs = require('fs');
-        fs.writeFile('public/country.json', data, () => {});
+        todaycases = result.todayCases;
+        //console.log(todaycases);
     }).catch(function(e){
         console.log("Oops, error");
     });
 }
- */
-getstates();
 
+getstates();
+getcountries();
+ 
 let update = setInterval(() => {
     getstates();
+    getcountries();
+    fs.writeFile('emaillist.json', JSON.stringify(emailaddresslist), () => {});
 }, 3600000); // update it every hour
+
+let autoSend = setInterval(() => {
+    sendemails();
+}, 86400000);
 
 app.use(cors({origin: '*'}));
 app.route('/state').get(function(req,res)
@@ -57,12 +87,25 @@ app.route('/state').get(function(req,res)
     console.log('receive a query');
     res.status(200).send(stateinfo);
 });
+
 app.route('/email/:address').get(function(req,res)
 {
     let address = req.params.address;
-    emailaddress.push(address);
-    res.send(address);
+    if (!emailaddress.has(address))
+    {
+        emailaddress.add(address);
+        emailaddresslist.push(address);
+    }
+    console.log(address);
+    res.end();
 });
+
+app.route('/notify').get(function(req,res)
+{
+    sendemails();
+    res.end();
+});
+
 app.get('/',function(req,res){
     res.send('Welcome to COVID19');
 });

@@ -17,3 +17,19 @@
     right: 10px;
     display: none;
 }
+
+/ modal style
+
+.modal-content{
+    background-color: #f9f5f1;
+    font-weight: bold;
+}
+
+.close span{
+    color: #01807b;
+}
+
+.modal-header{
+    border: none;
+    height: 15px;
+}
