@@ -15,6 +15,7 @@ import { HowtostaysafeComponent } from './components/howtostaysafe/howtostaysafe
 // import { LAcountyComponent } from './components/lacounty/lacounty.component';
 import { StateDashboardComponent } from './components/state-dashboard/state-dashboard.component';
 import { NewsapiComponent } from './components/newsapi/newsapi.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -35,6 +36,8 @@ import { NewsapiComponent } from './components/newsapi/newsapi.component';
     BrowserModule,
     AppRoutingModule, 
     HttpClientModule, 
+    FormsModule,
+    ReactiveFormsModule,
     Ng2GoogleChartsModule
   ],
   providers: [],
