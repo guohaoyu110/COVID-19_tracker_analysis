@@ -13,7 +13,6 @@ export class StateDashboardComponent implements OnInit {
   title = 'Covid19 Graph';
   canvas: any;
   ctx: any;
-  // response : any;
   stateData : any;
   state =[];
   cases =[];
@@ -30,10 +29,6 @@ export class StateDashboardComponent implements OnInit {
     
   }
 
-  public barChartData: any[] = [
-    { data: [], label: 'Total Cases' },
-    
-  ];
 
   getStateData(){
  

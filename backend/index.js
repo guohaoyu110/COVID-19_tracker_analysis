@@ -7,6 +7,7 @@ const fs = require('fs');
 const cors = require('cors')
 var stateinfo = [];
 var todaycases = 0;
+var totalcases = 0;
 var emailaddress = new Set();
 var emailaddresslist = [];
 
@@ -46,7 +47,7 @@ async function getstates(){
 
 function sendemails(){
     mailOptions.to = emailaddresslist;
-    mailOptions.text = 'todayCases: '+todaycases.toString();
+    mailOptions.text = 'In USA:'+'todayCases: '+todaycases.toString()+" "+'totalCases: ' + totalcases.toString();
     transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       return console.log(error);
@@ -61,6 +62,7 @@ async function getcountries(){
     fetch(country_url).then(function(response) {
         return response.json();
     }).then(function(result) {
+        totalcases = result.cases;
         todaycases = result.todayCases;
         //console.log(todaycases);
     }).catch(function(e){
