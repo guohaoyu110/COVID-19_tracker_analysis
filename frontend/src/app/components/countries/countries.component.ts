@@ -29,11 +29,6 @@ export class CountriesComponent implements OnInit {
   ngOnInit(): void {
 
     merge(
-      // this.service.getDateWiseData().pipe(
-      //   map(result=>{
-      //     this.dateWiseData = result;
-      //   })
-      // ), 
       this.service.getGlobalData().pipe(map(result=>{
         this.data = result;
         this.data.forEach(cs=>{

@@ -75,7 +75,7 @@ export class HomeComponent implements OnInit {
         if (cs.active > 200)
           value = cs.active
       if (caseType == 'd')
-        if (cs.deaths > 10)
+        if (cs.deaths > 20)
           value = cs.deaths
           
       if (caseType == 'r')
