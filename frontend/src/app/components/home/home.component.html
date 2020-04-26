@@ -84,11 +84,13 @@
 
     <div class="row">
         <div class="col">
-            <google-chart [data]="Table" ></google-chart>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJGtx7njCKTvH-1f-0dskoMG-aKVlxqcw&callback=initMap"
+  type="text/javascript"></script>
+            <google-chart [data]="GeoChart" ></google-chart>
         </div>
         <div class="col">
             <google-chart [data]="pieChart"></google-chart>
         </div>
     </div>
 
-  
+   

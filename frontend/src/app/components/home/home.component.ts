@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   pieChart: GoogleChartInterface = {
     chartType: 'PieChart'
   }
-  Table: GoogleChartInterface = {
+  GeoChart: GoogleChartInterface = {
     chartType: 'GeoChart'
   }
   constructor( private http: HttpClient) { }
@@ -128,12 +128,26 @@ export class HomeComponent implements OnInit {
         },
       },
     };
-    this.Table = {
+    // google.charts.load('current', {
+    //   packages: ['controls', 'geochart'],
+    //   callback: drawChart
+    // });
+    // var mapChart = new google.visualization.ChartWrapper({
+    //   chartType: 'GeoChart',
+    //   containerId: 'regions_div',
+    //   options: {
+    //       displayMode: 'regions'
+    //   }
+    // });
+    
+    this.GeoChart = {
       chartType: 'GeoChart',
-      mapsApiKey: 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY',
+      //mapsApiKey : 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY',
       dataTable: datatable,
+     
       options:{
         //displayMode : 'markers',
+        
         colorAxis: {colors: ['#4374e0','#e7711c', '#e31b23','red']} ,
         backgroundColor: '#81d4fa',
         allowHtml: true,
