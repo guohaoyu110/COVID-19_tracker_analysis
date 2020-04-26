@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data-service.service';
 import { GlobalDataSummary } from 'src/app/models/gloabl-data';
+import { HttpClient } from '@angular/common/http';
 import { GoogleChartInterface } from 'ng2-google-charts/google-charts-interfaces';
 
 @Component({
@@ -9,51 +10,75 @@ import { GoogleChartInterface } from 'ng2-google-charts/google-charts-interfaces
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  totalConfirmed = 0;
-  totalActive = 0;
-  totalDeaths = 0;
-  totalRecovered = 0;
+  baseUrl = 'https://corona.lmao.ninja/v2/all';
+  countryUrl = 'https://corona.lmao.ninja/v2/countries'; 
+  tempCnt : any;
+  tempCnt1 : any;
+  totalConfirmed1 = 0;
+  totalActive1 = 0;
+  totalDeaths1 = 0;
+  totalRecovered1 = 0;
+  // totalConfirmed = 0;
+  // totalActive = 0;
+  // totalDeaths = 0;
+  // totalRecovered = 0;
   loading = true;
-  globalData: GlobalDataSummary[];
+  //globalData: GlobalDataSummary[];
   pieChart: GoogleChartInterface = {
     chartType: 'PieChart'
   }
   Table: GoogleChartInterface = {
     chartType: 'GeoChart'
   }
-  constructor(private dataService: DataServiceService) { }
+  constructor( private http: HttpClient) { }
 
 
   
   ngOnInit(): void {
+    this.getWorldData();
+    this.getCountryData();
+    // this.dataService.getGlobalData()
+    //   .subscribe(
+    //     {
+    //       next: (result) => {
+    //         console.log(result);
+    //         this.globalData = result;
+    //         result.forEach(cs => {
+    //           if (!Number.isNaN(cs.confirmed)) {
+    //             this.totalActive += cs.active
+    //             this.totalConfirmed += cs.confirmed
+    //             this.totalDeaths += cs.deaths
+    //             this.totalRecovered += cs.active
+    //           }
 
-    this.dataService.getGlobalData()
-      .subscribe(
-        {
-          next: (result) => {
-            console.log(result);
-            this.globalData = result;
-            result.forEach(cs => {
-              if (!Number.isNaN(cs.confirmed)) {
-                this.totalActive += cs.active
-                this.totalConfirmed += cs.confirmed
-                this.totalDeaths += cs.deaths
-                this.totalRecovered += cs.active
-              }
+    //         })
 
-            })
-
-            this.initChart('c');
-          }, 
-          complete : ()=>{
-            this.loading = false;
-          }
-        }
-      )
+    //         this.initChart('c');
+    //       }, 
+    //       complete : ()=>{
+    //         this.loading = false;
+    //       }
+    //     }
+    //   )
   }
-
-
+  getCountryData(){
+    this.http.get(this.countryUrl).subscribe( response => {
+      this.tempCnt1 = response;
+      this.initChart('c');
+      this.loading = false;
+    })
+  }
+  getWorldData(){
+    this.http.get(this.baseUrl).subscribe(response => {
+      this.tempCnt = response;
+      console.log('tempCnt: ', this.tempCnt);
+      //this.countryArray = tempCnt;
+      this.totalConfirmed1 = this.tempCnt.cases;
+      this.totalActive1 = this.tempCnt.active;
+      this.totalRecovered1 = this.tempCnt.recovered;
+      this.totalDeaths1 = this.tempCnt.deaths;
+    });
+  }
 
   updateChart(input: HTMLInputElement) {//log the value of input
     console.log(input.value);
@@ -65,21 +90,21 @@ export class HomeComponent implements OnInit {
     let datatable = [];
     datatable.push(["Country", "Cases"])
     
-    this.globalData.forEach(cs => {
+    this.tempCnt1.forEach(cs => {
       let value :number ; // must be number type cannot be let value = ""
       if (caseType == 'c')
-        if (cs.confirmed > 2000)  // only show over 2000 cases
-          value = cs.confirmed
+        if (cs.cases > 3000)  // only show over 3000 cases
+          value = cs.cases
           
       if (caseType == 'a')
         if (cs.active > 200)
           value = cs.active
       if (caseType == 'd')
-        if (cs.deaths > 20)
+        if (cs.deaths > 50)
           value = cs.deaths
           
       if (caseType == 'r')
-        if (cs.recovered > 100)
+        if (cs.recovered > 300 && cs.recovered < 200000)
             value = cs.recovered
         
 
@@ -108,9 +133,12 @@ export class HomeComponent implements OnInit {
       dataTable: datatable,
       options:{
         //displayMode : 'markers',
-        colorAxis: {colors: ['#4374e0','#e7711c', 'red']} ,
+        colorAxis: {colors: ['#4374e0','#e7711c', '#e31b23','red']} ,
+        backgroundColor: '#81d4fa',
         allowHtml: true,
+        defaultColor: 'green'
       },
+      
     };
   }
 

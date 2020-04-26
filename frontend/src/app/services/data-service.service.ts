@@ -10,8 +10,13 @@ import { GlobalDataSummary } from '../models/gloabl-data';
 
 
 export class DataServiceService {
-  
+  baseUrl = 'https://corona.lmao.ninja/v2/all';
   private yesterday = this.getyesterday();
+  // totalCnf: any;
+  // totalAct: any;
+  // totalRcv: any;
+  // totalDth: any;
+  // lastUpdated: any;
   // nowdate : any;
   constructor(private http: HttpClient ) {
  }
@@ -34,9 +39,7 @@ export class DataServiceService {
   public globalDataUrl = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/`
   + this.yesterday + `.csv`;
   
-  getCountryData(){
-    
-  }
+ 
   
   getGlobalData() {
     return this.http.get(this.globalDataUrl, { responseType: 'text' }).pipe(
