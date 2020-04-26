@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
-import { CountriesComponent } from './components/countries/countries.component';
 import { AboutmeComponent } from './components/aboutme/aboutme.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {HttpClientModule}  from '@angular/common/http';
@@ -22,7 +21,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    CountriesComponent,
     AboutmeComponent,
     FooterComponent,
     HowtostaysafeComponent,

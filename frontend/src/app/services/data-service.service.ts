@@ -34,6 +34,9 @@ export class DataServiceService {
   public globalDataUrl = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/`
   + this.yesterday + `.csv`;
   
+  getCountryData(){
+    
+  }
   
   getGlobalData() {
     return this.http.get(this.globalDataUrl, { responseType: 'text' }).pipe(
