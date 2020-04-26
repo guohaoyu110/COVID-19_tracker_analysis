@@ -104,7 +104,7 @@ export class HomeComponent implements OnInit {
           value = cs.deaths
           
       if (caseType == 'r')
-        if (cs.recovered > 300 && cs.recovered < 200000)
+        if (cs.recovered > 300)
             value = cs.recovered
         
 
@@ -130,6 +130,7 @@ export class HomeComponent implements OnInit {
     };
     this.Table = {
       chartType: 'GeoChart',
+      mapsApiKey: 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY',
       dataTable: datatable,
       options:{
         //displayMode : 'markers',
