@@ -14,6 +14,7 @@ import { HowtostaysafeComponent } from './components/howtostaysafe/howtostaysafe
 import { StateDashboardComponent } from './components/state-dashboard/state-dashboard.component';
 import { NewsapiComponent } from './components/newsapi/newsapi.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CountryDashboardComponent } from './components/country-dashboard/country-dashboard.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     HowtostaysafeComponent,
     StateDashboardComponent,
-    NewsapiComponent
+    NewsapiComponent,
+    CountryDashboardComponent
   ],
   imports: [
     BrowserModule,

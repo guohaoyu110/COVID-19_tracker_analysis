@@ -1,0 +1,75 @@
+<div class="jumbotron bg-white text-center p-0 m-0 ">
+    <h1 class="display-4">Country Wise Tracker</h1>
+    <hr>
+
+<!-- <div class="row mx-auto w-100 mt-2">
+<div class="col-12 col-md-8"> -->
+        <!-- <div class="card w-200 "> -->
+                <!-- <div class="card-header bg-secondary">
+                        <span class="lblTxt text-light">Country Wise Data</span>
+                    </div> -->
+            <!-- <div class="card-body"> -->
+                <!-- <table class="table table-striped table-responsive"> -->
+                    <table class = "table">
+                    <thead class="sticky"> 
+                      <tr>
+                        <th>Country Name</th>
+                        <th>Cases total</th>
+                        <th>Deaths</th>
+                        <th>Recovered</th>
+                        <th>Active</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor = "let cntry of countryArray">
+                        <td>{{cntry.country}}</td>
+                        <td>{{cntry.cases | number}}</td>
+                        <td>{{cntry.deaths | number}}</td>
+                        <td>{{cntry.recovered | number}}</td>
+                        <td>{{cntry.active | number}}</td>
+                        <!-- <td>{{state.testsPerOneMillion | number}}</td> -->
+                      </tr>
+                     
+                    </tbody>
+                    
+                  </table>
+                
+                <!-- <div style="text-align:center">
+                    <canvas style ="display: block;margin: 0 auto;" id="myChart" width="420" height="200"></canvas>
+                </div>
+                <hr>
+                <table class="table table-striped table-responsive">
+                    <thead>
+                        <tr>
+                            <th class="text-uppercase" scope="col">Country Name </th>
+                            <th class="text-uppercase" scope="col">cases</th>
+                            <th class="text-uppercase" scope="col">deaths</th>
+                            <th class="text-uppercase" scope="col">recovered</th>
+                            <th class="text-uppercase" scope="col">active</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cntry of countryArray">
+                            <td>
+                                <span>{{cntry.country}} </span>
+                            </td>
+                            <td>
+                                <span>{{cntry.cases}}</span>
+                            </td>
+                            <td>
+                                <span>{{cntry.deaths}}</span>
+                            </td>
+                            <td>
+                                <span>{{cntry.recovered}}</span>
+                            </td>
+                            <td>
+                                <span>{{cntry.active}}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> -->
+            <!-- </div>
+        </div> -->
+    <!-- </div> -->
+  <!-- </div>
+</div> -->
