@@ -10,8 +10,8 @@ import { GoogleChartInterface } from 'ng2-google-charts/google-charts-interfaces
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  baseUrl = 'https://corona.lmao.ninja/v2/all';
-  countryUrl = 'https://corona.lmao.ninja/v2/countries'; 
+  baseUrl = 'http://localhost:7777/base';
+  countryUrl = 'http://localhost:7777/country'; 
   tempCnt : any;
   tempCnt1 : any;
   totalConfirmed1 = 0;
