@@ -19,6 +19,8 @@
 * Frontend icon: Google Map API and Chart.js
 * Host Platform: Heroku
 
+### Structure:
+![Markdown preferences pane](https://github.com/guohaoyu110/COVID-19_tracker_analysis/blob/dev/frontend/src/assets/structure.png)
 
 ## Getting started
 #### To get the Node server running locally:
