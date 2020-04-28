@@ -5,7 +5,7 @@
 
 ### Functions:
 
-* Crawl data from the website maintained by [John Hopkins University CSSEGISandData/COVID-19: Novel Coronavirus (COVID-19) Cases, provided by JHU CSSE](https://github.com/CSSEGISandData/COVID-19) and some other APIs
+* Crawl data from the website maintained by [John Hopkins University CSSEGISandData/COVID-19](https://github.com/CSSEGISandData/COVID-19) and some other [APIs](https://disease.sh/docs/)
 * Update the virus data automatically from server API every hour, both for worldwide data and US state data, like how many people get infected, how many deaths, how many people get cured and so on. 
 * Add a safety advice module to tell people what to do during this pandemic infection.
 * Write a footer and about us page to let people who browse this website have a better understanding about our project.
