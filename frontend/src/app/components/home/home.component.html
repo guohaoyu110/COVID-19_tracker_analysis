@@ -13,7 +13,7 @@
                     <h3>Confirmed</h3>
                 </div>
                 <div class="value">
-                    {{totalConfirmed|number}}
+                    {{totalConfirmed1|number}}
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
                     <h3>Recovered</h3>
                 </div>
                 <div class="value">
-                    {{totalRecovered|number}}
+                    {{totalRecovered1|number}}
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
                     <h3>Deaths</h3>
                 </div>
                 <div class="value">
-                    {{totalDeaths|number}}
+                    {{totalDeaths1|number}}
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
                     <h3>Active</h3>
                 </div>
                 <div class="value">
-                    {{totalActive|number}}
+                    {{totalActive1|number}}
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
 </div>
 
 <hr>
- <!-- the code before is now in the app-dashboard-card part -->
+ 
  <div class="ui form">
     <div class="inline fields">
         <label for="fruit">Select Case Type : </label>
@@ -84,11 +84,9 @@
 
     <div class="row">
         <div class="col">
-            <google-chart [data]="Table" ></google-chart>
+            <div id="regions_div" style="width: 800px; height: 500px;"></div>
         </div>
         <div class="col">
             <google-chart [data]="pieChart"></google-chart>
         </div>
-    </div>
-
-  
+    </div>  
