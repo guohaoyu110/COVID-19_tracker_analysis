@@ -3,6 +3,7 @@ import { DataServiceService } from 'src/app/services/data-service.service';
 import { GlobalDataSummary } from 'src/app/models/gloabl-data';
 import { HttpClient } from '@angular/common/http';
 import { GoogleChartInterface } from 'ng2-google-charts/google-charts-interfaces';
+declare var google: any;
 
 @Component({
   selector: 'app-home',
@@ -128,33 +129,24 @@ export class HomeComponent implements OnInit {
         },
       },
     };
-    // google.charts.load('current', {
-    //   packages: ['controls', 'geochart'],
-    //   callback: drawChart
-    // });
-    // var mapChart = new google.visualization.ChartWrapper({
-    //   chartType: 'GeoChart',
-    //   containerId: 'regions_div',
-    //   options: {
-    //       displayMode: 'regions'
-    //   }
-    // });
     
-    this.GeoChart = {
-      chartType: 'GeoChart',
-      //mapsApiKey : 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY',
-      dataTable: datatable,
-     
-      options:{
-        //displayMode : 'markers',
-        
+    google.charts.load('current', {
+      'packages':['geochart'],
+      'mapsApiKey': 'AIzaSyC8g11Xy1-jvoEOkXiFMEVrXhOstXcilQI'
+    });
+
+    google.charts.setOnLoadCallback(drawRegionsMap);
+
+    function drawRegionsMap() {
+      var data = google.visualization.arrayToDataTable(datatable);
+      var options = {
         colorAxis: {colors: ['#4374e0','#e7711c', '#e31b23','red']} ,
         backgroundColor: '#81d4fa',
         allowHtml: true,
-        defaultColor: 'green'
-      },
-      
-    };
-  }
+        defaultColor: 'green'};
 
+      var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+      chart.draw(data, options);
+    }
+  }
 }
