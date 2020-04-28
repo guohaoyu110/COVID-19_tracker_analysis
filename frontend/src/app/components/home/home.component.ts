@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataServiceService } from 'src/app/services/data-service.service';
-import { GlobalDataSummary } from 'src/app/models/gloabl-data';
 import { HttpClient } from '@angular/common/http';
 import { GoogleChartInterface } from 'ng2-google-charts/google-charts-interfaces';
 declare var google: any;
@@ -24,7 +22,6 @@ export class HomeComponent implements OnInit {
   // totalDeaths = 0;
   // totalRecovered = 0;
   loading = true;
-  //globalData: GlobalDataSummary[];
   pieChart: GoogleChartInterface = {
     chartType: 'PieChart'
   }
@@ -38,29 +35,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getWorldData();
     this.getCountryData();
-    // this.dataService.getGlobalData()
-    //   .subscribe(
-    //     {
-    //       next: (result) => {
-    //         console.log(result);
-    //         this.globalData = result;
-    //         result.forEach(cs => {
-    //           if (!Number.isNaN(cs.confirmed)) {
-    //             this.totalActive += cs.active
-    //             this.totalConfirmed += cs.confirmed
-    //             this.totalDeaths += cs.deaths
-    //             this.totalRecovered += cs.active
-    //           }
-
-    //         })
-
-    //         this.initChart('c');
-    //       }, 
-    //       complete : ()=>{
-    //         this.loading = false;
-    //       }
-    //     }
-    //   )
   }
   getCountryData(){
     this.http.get(this.countryUrl).subscribe( response => {
