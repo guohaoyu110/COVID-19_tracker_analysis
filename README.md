@@ -5,7 +5,7 @@
 
 ### Functions:
 
-* Grab data from widly-used third-party [APIs](https://disease.sh/docs/) and update the virus data automatically from server API every hour
+* Obtain data from widely-used third-party [APIs](https://disease.sh/docs/) and update the virus data automatically from server API every hour
 * Add a safety advice module to tell people what to do during this pandemic infection.
 * Write a footer and about us page to let people who browse this website have a better understanding about our project.
 * Build a news page using Microsoft Bing News API to let the website show the top news about coronavirus in the US
