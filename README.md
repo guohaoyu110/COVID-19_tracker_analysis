@@ -5,8 +5,7 @@
 
 ### Functions:
 
-* Crawl data from the website maintained by [John Hopkins University CSSEGISandData/COVID-19](https://github.com/CSSEGISandData/COVID-19) and some other [APIs](https://disease.sh/docs/)
-* Update the virus data automatically from server API every hour, both for worldwide data and US state data, like how many people get infected, how many deaths, how many people get cured and so on. 
+* Grab data from widly-used third-party [APIs](https://disease.sh/docs/) and update the virus data automatically from server API every hour
 * Add a safety advice module to tell people what to do during this pandemic infection.
 * Write a footer and about us page to let people who browse this website have a better understanding about our project.
 * Build a news page using Microsoft Bing News API to let the website show the top news about coronavirus in the US
@@ -56,3 +55,7 @@ https://docs.google.com/document/d/1BZBz4xfLIjS1I38m2HDi_x4Uc1u7bs1zMvgfVtk7GB4/
 
 ## License:
 [MIT](https://choosealicense.com/licenses/mit/)
+
+
+## YouTube link：
+https://www.youtube.com/watch?v=HiZ4z87VUSY&t=64s
