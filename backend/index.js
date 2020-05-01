@@ -173,5 +173,11 @@ app.listen(port, err => {
 
 module.exports = {
     isEmail: isEmail,
+    getBase: getBase,
+    getStates: getStates,
+    getCountries: getCountries,
+    stateinfo: stateinfo,
+    countryinfo: countryinfo,
+    baseinfo: baseinfo
 };
 
