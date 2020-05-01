@@ -15,6 +15,7 @@ var emailaddresslist = [];
 
 const port = 7777; //cannot use ports like 6000
 
+// get data used for presenting total numbers at'home'
 async function getBase(){
     const base_url = "https://corona.lmao.ninja/v2/all";
     fetch(base_url).then(function(response) {
@@ -26,6 +27,7 @@ async function getBase(){
     });
 }
 
+// get data used for 'states'
 async function getStates(){
     const state_url = "https://corona.lmao.ninja/v2/states";
     // const response = await fetch(state_url);
@@ -42,6 +44,7 @@ async function getStates(){
     });
 }
 
+// get data used for presenting countries at 'home'
 async function getCountries(){
     const country_url = "https://corona.lmao.ninja/v2/countries";
     fetch(country_url).then(function(response) {
@@ -53,6 +56,7 @@ async function getCountries(){
     });
 }
 
+// get data used for daily emails
 async function getEmailData(){
     const country_url = "https://corona.lmao.ninja/v2/countries/usa?yesterday=true&strict=true";
     fetch(country_url).then(function(response) {
@@ -66,14 +70,16 @@ async function getEmailData(){
     });
 }
 
+// sender account information for email 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'tianyi.usc@gmail.com',
-    pass: '20120823zhima',
+    pass: '**********',
   }
 });
 
+// daily email format 
 var mailOptions = {
   from: 'tianyi.usc@gmail.com',
   to: '',
@@ -81,6 +87,7 @@ var mailOptions = {
   text: 'test.'
 };
 
+// check whether the email address is valid
 function isEmail(str) {
     var reg=/^\w+@[a-zA-Z0-9]{2,10}(?:\.[a-z]{2,4}){1,3}$/;
     return reg.test(str);
@@ -102,18 +109,21 @@ getStates();
 getCountries()
 getEmailData();
  
+// update the data once an hour
 let update = setInterval(() => {
     getBase();
     getStates();
     getCountries()
     getEmailData();
     fs.writeFile('emaillist.json', JSON.stringify(emailaddresslist), () => {});
-}, 3600000); // update it every hour
+}, 3600000);
 
+// send emails once a day
 let autoSend = setInterval(() => {
     sendEmails();
 }, 86400000);
 
+// codes about local url for different functions
 app.use(cors({origin: '*'}));
 app.route('/base').get(function(req,res)
 {
@@ -133,6 +143,7 @@ app.route('/country').get(function(req,res)
     res.status(200).send(countryinfo);
 });
 
+// get the email address of users who subscribe
 app.route('/email/:address').get(function(req,res)
 {
     let address = req.params.address;
