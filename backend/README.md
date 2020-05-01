@@ -24,4 +24,4 @@ Run `node index.js`. Navigate to `http://localhost:7777/state`.
 Run `node index.js`. Navigate to `http://localhost:7777/notify`.
 
 ## Unit tests
-
+Run `npm test`
