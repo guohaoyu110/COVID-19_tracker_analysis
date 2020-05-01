@@ -170,3 +170,8 @@ app.route('/notify').get(function(req,res)
 app.listen(port, err => {
     console.log(`Listening on port: ${port}`);
 })
+
+module.exports = {
+    isEmail: isEmail,
+};
+
