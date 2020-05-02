@@ -42,7 +42,7 @@ $ node index.js
 Go to `/frontend`, then run
 
 - Clone the repository.
-- Run npm install in folder.
+- Run `npm install` in folder.
 - Make sure you have npm and angular-cli installed.
 - After installation is done, run ng serve and open website at https://localhost:4200
 
