@@ -25,7 +25,7 @@
 #### To get the Node server running locally:
 
 - Clone this repo
-- add the information of your gmail account for subscribe module at '/backend/index.js'
+- add the information of your gmail account for subscribe module at `/backend/index.js`
 - to install all required dependencies
 
 ```bash
