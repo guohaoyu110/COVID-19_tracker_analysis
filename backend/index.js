@@ -167,7 +167,7 @@ app.route('/notify').get(function(req,res)
     res.end();
 });
 
-app.listen(port, err => {
+app.listen(process.env.port||port, err => {
     console.log(`Listening on port: ${port}`);
 })
 
