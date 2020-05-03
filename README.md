@@ -1,7 +1,7 @@
 # COVID-19_tracker\_analysis
 
-<!--## Topic: 
-### Build a website doing track and analysis of coronavirus in worldwide and America, including frontend and backend development.-->
+### Description: 
+Build a website doing track and analysis of coronavirus in worldwide and America, including frontend and backend development.
 
 ### Functions:
 
