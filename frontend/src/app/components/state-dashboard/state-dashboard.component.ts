@@ -31,7 +31,7 @@ export class StateDashboardComponent implements OnInit {
 
 
   getStateData(){
- 
+    // get state data from server api
     this.http.get('http://localhost:7777/state')
     .subscribe((response) => 
       {this.stateData = response;
@@ -60,7 +60,7 @@ export class StateDashboardComponent implements OnInit {
               label: 'State Data',
               data: [
                 this.cases.reduce((a,b) => a+b,0),
-                //this.todayCases.reduce((a,b) => a+b,0),
+                //do the sum calculation
                 this.active.reduce((a,b) => a+b,0),
                 // this.testsPerOneMillion.reduce((a,b)=> a+b,0),
                 this.deaths.reduce((a,b) => a+b,0),],

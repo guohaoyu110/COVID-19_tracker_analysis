@@ -21,7 +21,7 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
     this.subscribeForm = this.fBuilder.group({
-      email: ['']});
+      email: ['']}); // set the email subscriber
   }
 
   // subscribe form submit event function

@@ -74,8 +74,8 @@ async function getEmailData(){
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'harryguo.usc@gmail.com',
-    pass: 'gydbej-xirdy1-jaZnup',
+    user: 'tianyi.usc@gmail.com',
+    pass: '*******',
   }
 });
 

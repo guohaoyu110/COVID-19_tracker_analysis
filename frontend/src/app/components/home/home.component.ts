@@ -39,11 +39,12 @@ export class HomeComponent implements OnInit {
   getCountryData(){
     this.http.get(this.countryUrl).subscribe( response => {
       this.tempCnt1 = response;
-      this.initChart('c');
-      this.loading = false;
+      this.initChart('c'); // init google chart at home page
+      this.loading = false; 
     })
   }
   getWorldData(){
+    // use this function to get the data from all over the world
     this.http.get(this.baseUrl).subscribe(response => {
       this.tempCnt = response;
       console.log('tempCnt: ', this.tempCnt);

@@ -9,9 +9,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NewsapiComponent implements OnInit {
   
-  newsData : news[] = [];
+  newsData : news[] = []; // define a data structure of the news
   constructor(private http: HttpClient) { }
   getLatestNews(){
+    // get news api data from Microsoft Bing news API
     const url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=uscoronavirus";
     // var url = "https://gnews.io/api/v3/search?q="+"&token=d02959da05c216ca2a05811eff49b7e7"
     return this.http.get(url, {headers : {'Ocp-Apim-Subscription-Key' : '9fc2b0698a444b7c9af64925d0447951'  }});

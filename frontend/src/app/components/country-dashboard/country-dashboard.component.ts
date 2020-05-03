@@ -23,6 +23,7 @@ export class CountryDashboardComponent implements OnInit {
   }
   
   getCountryData(){
+    // get country data
     this.http.get(this.countrApi).subscribe(response => {
       const tempCnt = response;
       this.countryArray = tempCnt;
