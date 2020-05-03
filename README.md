@@ -21,6 +21,9 @@
 ### Structure:
 ![Markdown preferences pane](https://github.com/guohaoyu110/COVID-19_tracker_analysis/blob/master/frontend/src/assets/structure.png)
 
+### Demo:
+![](https://github.com/guohaoyu110/COVID-19_tracker_analysis/blob/master/covid.gif)
+
 ## Getting started
 #### To get the Node server running locally:
 
