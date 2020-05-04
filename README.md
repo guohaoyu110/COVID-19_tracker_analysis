@@ -24,6 +24,8 @@ Build a website doing track and analysis of coronavirus in worldwide and America
 ### Demo:
 ![](https://github.com/guohaoyu110/COVID-19_tracker_analysis/blob/master/covid.gif)
 
+![](https://github.com/guohaoyu110/COVID-19_tracker_analysis/blob/master/frontend/src/assets/screenshot.png)
+
 ## Getting started
 #### To get the Node server running locally:
 
