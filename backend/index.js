@@ -8,8 +8,10 @@ const cors = require('cors')
 var stateinfo = [];
 var countryinfo = [];
 var baseinfo = [];
-var todaycases = 0;
-var totalcases = 0;
+var yesterdayCase;
+var cumCases;
+var cumRec;
+var caCases;
 var emailaddress = new Set();
 var emailaddresslist = [];
 
@@ -58,12 +60,33 @@ async function getCountries(){
 
 // get data used for daily emails
 async function getEmailData(){
-    const country_url = "https://corona.lmao.ninja/v2/countries/usa?yesterday=true&strict=true";
+    const country_url = "https://corona.lmao.ninja/v2/countries/US?yesterday=true&strict=true";
+    const country_today_url = "https://corona.lmao.ninja/v2/countries/US";
+    const ca_url = "https://corona.lmao.ninja/v2/states/California";
+    
     fetch(country_url).then(function(response) {
         return response.json();
     }).then(function(result) {
-        totalcases = result.cases;
-        todaycases = result.todayCases;
+        yesterdayCase = result.todayCases;
+        //console.log(todaycases);
+    }).catch(function(e){
+        console.log("Oops, error");
+    });
+
+    fetch(country_today_url).then(function(response) {
+        return response.json();
+    }).then(function(result) {
+        cumCases = result.cases;
+        cumRec = result.recovered;
+        //console.log(todaycases);
+    }).catch(function(e){
+        console.log("Oops, error");
+    });
+
+    fetch(ca_url).then(function(response) {
+        return response.json();
+    }).then(function(result) {
+        caCases = result.cases;
         //console.log(todaycases);
     }).catch(function(e){
         console.log("Oops, error");
@@ -93,9 +116,12 @@ function isEmail(str) {
     return reg.test(str);
 }
 
+// send the emails
 function sendEmails(){
     mailOptions.to = emailaddresslist;
-    mailOptions.text = 'In USA: \n'+'Yesterday New Cases: '+todaycases.toString()+"\n"+'Total Cases up to Yesterday: ' + totalcases.toString();
+    mailOptions.text = 'In USA: \n'+'Yesterday New Cases: '+yesterdayCase.toString()+"\n"+'Cumulative Cases: '
+    +cumCases.toString()+"\n"+'Cumulative Recovered: '+cumRec.toString()+"\n\n"+'In California: \n'+
+    'Cumulative Cases: '+caCases.toString()+"\n";
     transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       return console.log(error);
