@@ -56,12 +56,6 @@ Haoyu Guo   haoyuguo@usc.edu
 
 Tianyi Xu   xutianyi@usc.edu 
 
-<!--## Project proposal link:
-https://docs.google.com/document/d/1BZBz4xfLIjS1I38m2HDi_x4Uc1u7bs1zMvgfVtk7GB4/edit-->
-## Future work
-* Add COVID-19 infected conditions in Los Angeles
-* Add a pop-window interface for Email subscriber
-* Build a page showing the predicted data of the evolving condition for the US
 
 ## License:
 [MIT](https://choosealicense.com/licenses/mit/)
