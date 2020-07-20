@@ -4,7 +4,7 @@ const app = express();
 const fetch = require("node-fetch");
 const nodemailer = require('nodemailer');
 const fs = require('fs');
-const cors = require('cors')
+const cors = require('cors') // 跨域资源共享
 var stateinfo = [];
 var countryinfo = [];
 var baseinfo = [];
@@ -18,6 +18,7 @@ var emailaddresslist = [];
 const port = 7777; //cannot use ports like 6000
 
 // get data used for presenting total numbers at'home'
+// fetch  .then 的最基本的操作
 async function getBase(){
     const base_url = "https://corona.lmao.ninja/v2/all";
     fetch(base_url).then(function(response) {
@@ -32,9 +33,6 @@ async function getBase(){
 // get data used for 'states'
 async function getStates(){
     const state_url = "https://corona.lmao.ninja/v2/states";
-    // const response = await fetch(state_url);
-    // const data = await response.json();
-    // console.log('data: ', data);
     fetch(state_url).then(function(response) {
         return response.json();
     }).then(function (data){
@@ -98,7 +96,7 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'tianyi.usc@gmail.com',
-    pass: '*****',
+    pass: '20120823zhima',
   }
 });
 
@@ -160,7 +158,7 @@ app.route('/base').get(function(req,res)
 app.route('/state').get(function(req,res)
 {
     console.log('receive a query requesting state data');
-    res.status(200).send(stateinfo);
+    res.status(200).send(stateinfo); // 送到一个数组里面
 });
 
 app.route('/country').get(function(req,res)
