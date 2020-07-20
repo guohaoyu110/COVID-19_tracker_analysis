@@ -46,6 +46,7 @@ export class HomeComponent implements OnInit {
   getWorldData(){
     // use this function to get the data from all over the world
     this.http.get(this.baseUrl).subscribe(response => {
+      //get data from our own server
       this.tempCnt = response;
       console.log('tempCnt: ', this.tempCnt);
       //this.countryArray = tempCnt;
